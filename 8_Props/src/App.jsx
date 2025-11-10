@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css'; // ✅ ये तुम्हारा CSS file import करेगा
-import Card from './components/Card.jsx';
 
 const App = () => {
   return (
