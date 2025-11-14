@@ -1,6 +1,6 @@
 import React from 'react'
 
-const card = () => {
+const card = () => {  
   return (
     <div className="card">
         <img 
@@ -13,5 +13,4 @@ const card = () => {
       </div>
   )
 }
-
 export default card
