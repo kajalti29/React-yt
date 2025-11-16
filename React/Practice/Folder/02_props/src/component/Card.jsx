@@ -1,15 +1,14 @@
-import React from "react";
-import "./App.css";
 
-function ProfileCard(props) {
+import React from 'react'
+
+function Card(props) {
+  console.log(props);  // ← Ye console me output dega
+
   return (
-    <div className="card">
-      <img src={props.image} alt="profile" />
-      <h1>{props.name}</h1>
-      <p>{props.bio}</p>
-      <button>View Profile</button>
+    <div>
+      {props.user} — {props.age}
     </div>
-  );
+  )
 }
 
-export default ProfileCard;
+export default Card;
