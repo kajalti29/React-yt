@@ -1,12 +1,13 @@
 import React from 'react'
+import { FaHeart } from "react-icons/fa";
+import './App.css';
 
 function App() {
   return (
     <div className='profile'>
-    <img src="public\images.jpg" alt="Profile" />
-    <a href='#'></a>
+      <img src="/images.jpg" alt="Profile" />
     </div>
   )
 }
 
-export default App
+export default App;
