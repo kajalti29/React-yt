@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='profile'>
       <img src="/images.jpg" alt="Profile" />
-    </div>
+      </div>
   )
 }
 
