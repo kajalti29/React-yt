@@ -1,0 +1,83 @@
+/* Reset + Full Height Setup */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f3f4f6;
+}
+
+/* Main App Wrapper → Centers Card Perfectly */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile Card */
+.profile-card {
+  background: #ffffff;
+  padding: 24px;
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  justify-content: center;
+}
+
+/* Profile Image */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+/* Name */
+.profile-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #4b5563;
+}
+
+/* Role */
+.profile-role {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Bio */
+.profile-bio {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+/* Follow Button */
+.profile-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.profile-btn:hover {
+  background: #1e40af;
+}
