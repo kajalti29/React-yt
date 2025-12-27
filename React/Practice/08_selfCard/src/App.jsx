@@ -1,15 +1,13 @@
 import React from 'react'
+import Card from './Components/Card.jsx'
+
 
 const App = () => {
   return (
-    <div className='Parent'>
-    <div className='selfcard'>
-    <h2>Radhika</h2>
-    <p>These are short, famous texts in English from classic sources like the Bible or Shakespeare.</p>
-    <button>View profile</button> 
-    </div>  
+    <div className='parent'>
+      <Card user='Ramayana'/>
+      <Card user='Mahabharat'/>
     </div>
   )
 }
-
 export default App
