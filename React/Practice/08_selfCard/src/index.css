@@ -15,7 +15,7 @@ html , body{
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: #f0f0f0;
+    background-color: #111;
     flex-wrap: wrap;
 }
 .card{

@@ -7,7 +7,7 @@ const Card = (props) => {
   return (
     <div>
       <div className='card'>
-      <img src="src\assets\srimadbhagavadgita.jpg" alt="book" />
+      <img src={props.img} alt="" />
       <h1>{props.user}</h1>
       <p>The Gita, most famously the Bhagavad Gita is a revered Hindu scripture in Sanskrit, meaning "Song of God" or "Divine Song,"</p>
       <button>Read More</button>
@@ -15,5 +15,4 @@ const Card = (props) => {
     </div>
   )
 }
-
 export default Card
