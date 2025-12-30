@@ -1,0 +1,15 @@
+.header{
+    height: 100px;
+    width: 100%;
+    background-color: orange;
+    text-align: center;
+    padding: 20px;
+}
+
+.btn{
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
