@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from './Component/Section1/Navbar'
-import Page1Content from './Component/Section1/Page1Content'
+import LeftContain from './Components/Section1/LeftContain'
+import RightContain from './Components/Section2/RightContain'
 
 const App = () => {
   return (
-    <div className="min-h-screen w-full">
-      <Navbar />
-      <Page1Content />
+    <div className="bg-amber-400">
+      <LeftContain/>  
+      <RightContain/> 
     </div>
   )
 }
