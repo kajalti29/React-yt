@@ -5,3 +5,5 @@ then add the vite.config.js :-import tailwindcss from '@tailwindcss/vite'
 
   plugins: [react(),tailwindcss()],
 ------------------------------------------------------------------------------------
+
+rafce:- isse bollar plate aa jayega
