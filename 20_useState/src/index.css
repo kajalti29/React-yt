@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100vh;
+  width: 100%;
+  background-color:gainsboro;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heading */
+h1{
+  font-size: 35px;
+  text-align: center;
+}
+
+/* Button */
+button{
+  border: none;
+  height: 50px;
+  width: 120px;
+
+  margin: 30px auto;
+  font-size: 20px;
+
+  background-color: dodgerblue;
+  color: white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover{
+  background-color: blue;
+}
