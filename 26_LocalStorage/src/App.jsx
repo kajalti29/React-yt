@@ -26,3 +26,46 @@
 // }
 
 // export default App
+
+
+
+
+
+// LocalStorage only string store karta hai, direct object/array nhi rkh sakta.
+
+// 🔁 JSON.stringify & JSON.parse (MOST CONFUSING PART)
+// * JSON.stringify()
+// 👉 Object / array → string बनाता है
+
+// JSON.stringify({name: "Kajal"})
+// "{ "name": "Kajal" }"
+
+// * JSON.parse()
+// 👉 String → object बनाता है
+
+// JSON.parse('{"name":"Kajal"}')
+// { name: "Kajal" }
+
+
+// 📌 LocalStorage में save = stringify
+// 📌 LocalStorage से get = parse
+
+
+import React from 'react'
+
+const App = () => {
+  const user =  {
+    username: 'Sarthak',
+    age: 18,
+    city:'Bhopal'
+  }
+  localStorage.setItem('user', JSON.stringifyuser);
+  
+
+
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
