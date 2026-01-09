@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// localStorage means browser ki memory
+// SessionStorage means Temporary browser storage
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+// Methods of local Storage
+// localStorage.setItem("key", "value")  iska use data save  karne ke liye hota hai
+// localStorage.setItem("name", "Kajal")
 
-export default App
+// localStorage.getItem("key") saved data nikalne ke liye
+//  const name = localStorage.getItem("name")
+// console.log(name) // Kajal
+
+// localStorage.removeItem("name") :_single data delete karne ke liye
+// localStorage.clear() :- puri localStorage khali karne ke liye
+
+
+
+// import React from 'react'
+
+// localStorage.setItem("name", "Kajal")
+
+// const App = () => {
+//   return (
+//     <div>App</div>
+//   )
+// }
+
+// export default App
