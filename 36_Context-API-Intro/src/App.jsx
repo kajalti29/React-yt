@@ -1,10 +1,6 @@
 // React Context API Introduction:-
-
 // Context API React ka ek feature hai jo global data share karne ke kaam aata hai
 // without props drilling.
-
-
-
 
 // 📦 Context API me 3 main cheeze hoti hain:-
 
