@@ -4,15 +4,12 @@ Tailwind ka use karne ke liye first of all- crate project name, then Instal tail
 then add the vite.config.js :-import tailwindcss from '@tailwindcss/vite'
 
   plugins: [react(),tailwindcss()],
-------------------------------------------------------------------------------------
 
 rafce:- isse bollar plate aa jayega
-
-
-<!-- 📘 React Full Notes -->
+------------------------------------------------------------------------------------
+📘 React Full Notes:-
 <!-- 1️⃣ What is React? -->
 React is a JavaScript library used to build user interfaces, especially single-page applications (SPA).
-
 
 React ek JavaScript library hai jo UI (User Interface) banane ke liye use hoti hai.
 🔹 Developed by Facebook (Meta)
@@ -34,7 +31,6 @@ SPA me page reload nahi hota, sirf content change hota hai.
 👉 “In an SPA (Single Page Application), the page does not reload; only the content changes.”
 
 📌 Example: Gmail, Facebook
-
 
 <!-- 3️⃣ Component -->
 A Component is a reusable and independent part of a user interface in React.
@@ -74,7 +70,6 @@ function Hello() {
 const Hello = () => {
   return <h1>Hello</h1>
 }
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <!-- 5️⃣ Props :- -->
@@ -101,17 +96,14 @@ function Child(props) {
 
 6️⃣ State :-
 State is used to store and manage data inside a component.
-
 <!--
  const [count, setCount] = useState(0); -->
 
-
 <!-- different between props and state -->
 
----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
 <!-- 🪝 Hook :- -->
 Hooks are special functions that let you use state, lifecycle, and other React features inside functional components.
-
 
 <!-- Why Hooks were introduced? -->
 
@@ -130,7 +122,7 @@ Answer:
 
 
 1️⃣ useState – State handle karne ke liye
-// * useState → Component ka data ya state  manage karta hai
+// * useState → Component ka data ya state manage karta hai
 
 <!-- 
 import { useState } from "react";
@@ -176,7 +168,13 @@ Component load hone ke baad ka kaam (API call, event, timer)
 
 
 <!-- 🔟 Events Handling in React:- -->
-Events handle user actions like click, input, submit.
+<!-- Events handle user actions like click, input, submit. -->
+An event is an action performed by the user on a web page, such as a click, typing, or form submission.
+Examples:
+click
+change
+submit
+keypress
 
 <button onClick={handleClick}>Click</button>
 
@@ -207,8 +205,9 @@ users.map((u, index) => (
 ));
 
 
-<!-- 1️⃣2️⃣ Controlled Component:- -->
-Form elements controlled by React state.
+<!-- 🔹 18. What is Conditional Rendering? -->
+Rendering components based on a condition is called conditional rendering.
+
 
 <!-- Form Handling -->
 Form handling means form ka data lena, manage karna, aur submit karna.
@@ -226,7 +225,6 @@ function Form() {
     </form>
   );
 }
-
 ----------------------------------------------------------------------------------------------------------------------------
 
 <!-- 1️⃣3️⃣ Lifting State Up -->
@@ -235,7 +233,6 @@ Hindi:-
 State ko parent component me le jana.
 
 <Child sendData={setValue} />
-
 
 <!-- 1️⃣6️⃣ React Router -->
 // 👉 React Router DOM is used to handle routing and navigation in React applications without page reload.
@@ -423,9 +420,6 @@ Data ek direction me flow karta hai → bug kam hote hain
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <!-- 🔹 17. What is One-way Data Binding? -->
 Data flows in one direction (Parent ➝ Child), which makes debugging easier.
-
-<!-- 🔹 18. What is Conditional Rendering? -->
-Rendering components based on a condition is called conditional rendering.
 
 <!-- What is Key in React? -->
 Keys help React identify elements uniquely in lists and improve performance.

@@ -4,37 +4,29 @@ import React, { useState } from 'react'
 // App naam ka functional component
 const App = () => {
 
-  // Weight store karne ke liye state
-  const [weight, setWeight] = useState('')
+  const [weight, setWeight] = useState('')    // Weight store karne ke liye state
 
-  // Height store karne ke liye state
-  const [height, setHeight] = useState('')
+  const [height, setHeight] = useState('')    // Height store karne ke liye state
 
-  //BMI result store karne ke liye state
-  const [bm, setBm] = useState(null)
+  const [bm, setBm] = useState(null)         //BMI result store karne ke liye state
 
-  // BMI category message ke liye state
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('') // BMI category message ke liye state
 
-  // BMI calculate karne ka function
-  const calculateBMI = (e) => {
-    e.preventDefault() // page reload hone se roke
+  const calculateBMI = (e) => {             // BMI calculate karne ka function
+    e.preventDefault()                      // page reload hone se roke
 
-    // Agar weight ya height empty ho
-    if (weight === '' || height === '') {
+    if (weight === '' || height === '') {    // Agar weight ya height empty ho
       alert('Please enter weight and height')
       return // yahin function stop
     }
 
-    // Height ko cm se meter me convert kar rahe hain
-    const heightInMeter = height / 100
+    const heightInMeter = height / 100        // Height ko cm se meter me convert kar rahe hain
 
-    // BMI formula apply kar rahe hain
-    const bmi = (weight / (heightInMeter * heightInMeter)).toFixed(2)
+    const bmi = (weight / (heightInMeter * heightInMeter)).toFixed(2)     // BMI formula apply kar rahe hain
 
-    // BMI value ko state me store kar rahe hain
-    setBm(bmi)
+    setBm(bmi)                // BMI value ko state me store kar rahe hain
 
+    
     // BMI ke according message set kar rahe hain
     if (bmi < 18.5) {
       setMessage('You are Underweight')
@@ -59,8 +51,7 @@ const App = () => {
       <div className='container'>
         <h2>BMI Calculator</h2>
 
-        {/* Form start */}
-        <form onSubmit={calculateBMI}>
+        <form onSubmit={calculateBMI}>          {/* Form start */}
 
           {/* Weight input */}
           <div>
@@ -115,5 +106,4 @@ const App = () => {
   )
 }
 
-// Component export
 export default App
