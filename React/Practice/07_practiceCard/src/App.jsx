@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div className='parent'>
       <Card user='Aman' age={18}/> 
-      <Card user='John' age={25}/>
+      <Card user='John' age={24}/>
     </div>
   )
 }
