@@ -63,7 +63,7 @@
 50. Difference between Redux and Context API?
 ----------------------------------------------------------------------------------------------------------
 <!-- 1. What is React? -->
-React is a JavaScript library used to build user interfaces, especially single-page applications (SPA).
+React is a JavaScript library used to build fast user interfaces, especially single-page applications (SPA).
 It is Handles logic, state, props, JSX
 
 <!-- 2. Why is React used? -->
