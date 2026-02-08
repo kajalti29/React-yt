@@ -74,5 +74,66 @@ Update only changed UI.
 
 <!-- 🧩 Code Example -->
 
+const [count, setCount] = React.useState(0);
+
+<button onClick={() => setCount(count + 1)}>
+  Click Me
+</button>
+
+<!-- Q: Is React framework? -->
+👉 ❌ No, it is a library.
+<!-- Q: Who developed React? -->
+👉 Meta (Facebook) 2013
+<!-- Q: React fast kyun hai? -->
+👉 Virtual DOM ki wajah se
+<!-- Q: SPA ka main benefit? -->
+👉 Fast, smooth user experience.
+----------------------------------------------------------------------
+<!-- 3️⃣ JSX (JavaScript XML) -->
+<!-- 1️⃣ What is JSX? -->
+JSX stands for JavaScript XML. JSX is a syntax extension of JavaScript that allows us to write HTML-like code inside JavaScript in React.
+JSX = JavaScript + HTML
+
+JSX looks like HTML but it is not HTML. JSX follows JavaScript rules.
+
+<!-- const element = <h1>Hello JSX</h1>; -->
+👉 Ye dikhta HTML jaisa hai
+👉 But actually JavaScript object hota hai.
+<!-- 🔹 What is XML? -->
+XML stands for Extensible Markup Language. It is used to store and transport data in a structured and readable format.
+
+Hindi:-
+XML ka full form Extensible Markup Language hota hai. Ye data ko store aur transport karne ke liye use hoti hai, ek structured format me.
+
+<!-- JSX vs HTML -->
+
+// JSX
+<h1 className="title">Hello</h1>
+
+// HTML
+<h1 class="title">Hello</h1>
+
+<!--What is an Expressions in JSX -->
+Expressions in JSX allow us to write JavaScript code inside curly braces {}.
+
+<!-- Expression kya hota hai? -->
+👉 Jo value return kare
+Allowed:
+Variables
+Math
+Function call
+Ternary operator
+
+❌ Not allowed:
+if-else (direct)
+loops (direct)
+<!-- 
+const name = "Kajal";
+const age = 22;
+
+<h1>Hello {name}, Age: {age}</h1> -->
+
+Math Example
+<h2>Sum: {10 + 20}</h2>
 
 
