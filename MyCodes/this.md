@@ -136,4 +136,41 @@ const age = 22;
 Math Example
 <h2>Sum: {10 + 20}</h2>
 
+<!-- 4️⃣ JSX Rules (INTERVIEW GOLD 🥇) -->
+🔹 Rule 1: One Parent Element
 
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>React</p>
+  </div>
+);
+
+Wrong
+return (
+  <h1>Hello</h1>
+  <p>React</p>
+);
+
+Rule 2: Close All Tags
+<img src="logo.png" />
+<br />
+
+🔹 Rule 3: Use className
+<h1 className="heading">JSX</h1>
+
+Rule 4: camelCase Attributes
+<button onClick={handleClick}>Click</button>
+
+<!-- 5️⃣ JSX with JavaScript (REAL WORLD) -->
+JSX allows us to combine JavaScript logic with UI, making code more dynamic and readable.
+Hindi:-
+JSX hume JavaScript logic aur UI ko ek saath likhne deta hai, jisse code dynamic aur readable ho jata hai.
+<!-- 
+function App() {
+  const isLoggedIn = true;
+
+  return (
+    <h1>{isLoggedIn ? "Welcome User" : "Please Login"}</h1>
+  );
+} -->
