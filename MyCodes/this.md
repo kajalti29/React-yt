@@ -435,5 +435,7 @@ function Profile({ name = "Guest" }) {
 <!-- Function props kyu use hote hain? -->
 👉 Child → Parent communication
 
-1️⃣ Ek Student component banao (name, marks props)\
+1️⃣ Ek Student component banao (name, marks props).
+2️⃣ Ek Button component jisme click par parent function call ho
+
 -------------------------------------------------------------------------------------

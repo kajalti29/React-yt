@@ -1,3 +1,5 @@
+// 1️⃣ Ek Student component banao (name, marks props)
+
 import Student from './Components/Student.jsx'
 
 const App = () => {
