@@ -174,3 +174,95 @@ function App() {
     <h1>{isLoggedIn ? "Welcome User" : "Please Login"}</h1>
   );
 } -->
+
+Logic:
+Condition JS se
+UI JSX se
+Ternary operator use kiya'
+
+<!-- Q: Is JSX mandatory in React? -->
+👉 ❌ No, but recommended
+<!-- Q: Can browser read JSX directly? -->
+👉 ❌ No
+<!-- Q: JSX me if-else kyun nahi? -->
+👉 Kyunki JSX expressions allow karta hai, statements nahi
+<!-- XML self-closing tags kyun strict hain? -->
+👉 XML strict syntax follow karta hai
+
+<!-- Q: JSX me XML ka role? -->
+👉 Syntax rules (closing, nesting)
+------------------------------------------------------------------------------------------------------------------
+<!-- 🟢 PHASE 2: Components (CORE of React) -->
+<!-- 4️⃣ What is a Component? -->
+A component is a reusable piece of UI in React. It is a JavaScript function that returns JSX.
+
+<!-- Real-world Logic -->
+👉 “Imagine a website as a building.”
+Socho website ek building hai 🏢
+Header
+Footer
+Sidebar
+Button
+
+👉 Har ek = component
+👉 Baar-baar use = reuse
+<!-- 
+function Header() {
+  return <h1>Welcome</h1>;
+} -->
+Logic:
+Header = component
+JSX return kar raha
+UI ka ek part
+
+<!-- 5️⃣ Functional Components (MOST USED 🔥) -->
+A functional component is a JavaScript function that returns JSX. It is the most commonly used component type in modern React.
+Hndi:-
+Functional component ek JavaScript function hota hai jo JSX return karta hai. Aaj-kal React me ye sabse zyada use hota hai.
+<!-- 
+function Greeting() {
+  return <h2>Hello User</h2>;
+} -->
+
+Or arrow function:-
+<!-- 
+const Greeting = () =>{
+    return <h2>Hello User</h2>;
+}; -->
+
+Function = component
+JSX = UI
+Easy + clean
+
+<!-- 6️⃣ Component Naming Rules (VERY IMPORTANT ❗) -->
+A Component names must start with a capital letter Because React uses JSX, not pure HTML.
+❌ Wrong
+<!-- 
+function header() {
+  return <h1>Header</h1>;
+} -->
+✔️ Correct
+<!-- 
+function Header() {
+  return <h1>Header</h1>;
+} -->
+🧠 Logic:
+<header> = HTML tag
+<Header /> = React component
+
+<!-- 7️⃣ Reusable Components (INTERVIEW FAVORITE ⭐) -->
+Reusable components are components that can be used multiple times with different data.
+
+function Button() {
+  return <button>Click Me</button>;
+}
+Use multiple times:
+
+<Button />
+<Button />
+<Button />
+🧠 Logic:
+Ek baar likho
+Baar-baar use karo
+Same UI
+

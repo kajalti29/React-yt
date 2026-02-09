@@ -1,0 +1,68 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #968888;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* ✅ Parent */
+.Parent{
+  width: 100%;
+  display: flex;
+  gap: 20px;              /* cards ke beech space */
+  justify-content: center;
+}
+
+/* ✅ Card */
+.Card{
+  width: 320px;
+  padding: 22px;
+  border-radius: 16px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.Card img{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.Card h1{
+  font-size: 30px;
+  margin: 10px 0;
+  color: #2c2c2c;
+}
+
+.Card p{
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.Card button{
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff6f61;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Card button:hover{
+  background-color: #e85c50;
+}
