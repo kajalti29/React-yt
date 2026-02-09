@@ -437,5 +437,128 @@ function Profile({ name = "Guest" }) {
 
 1️⃣ Ek Student component banao (name, marks props).
 2️⃣ Ek Button component jisme click par parent function call ho
-
+4️⃣ 3 students ko same component se render karo
 -------------------------------------------------------------------------------------
+<!-- 6️⃣ State (MOST IMPORTANT 🔥) -->
+<!-- 1️⃣ What is State? -->
+State is a built-in object in React used to store and manage data that can change over time and affects the UI.
+
+Example:
+Counter number
+Login status
+Form input value
+
+Example (Without hook – concept)
+<!-- let count = 0; // normal variable -->
+❌ Problem:
+Change hoga
+UI re-render ❌
+👉 Isliye React me state use hoti hai ✅
+
+<!-- Real-life Example -->
+Socho ek counter app:
+Number 0 → 1 → 2 → 3
+Ye number change ho raha hai, isliye ye state hai.
+<!-- 
+
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+export default Counter; 
+-->
+--------------------------------------
+<!-- 2️⃣ useState Hook -->
+useState is a React hook that allows functional components to use state.
+
+<!-- const [state, setState] = useState(initialValue); -->
+
+Example:-
+<!-- 
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return <h1>{count}</h1>;
+}
+ -->
+🧠 Logic:
+count → current state
+setCount → update karne ka function
+0 → initial value
+
+<!-- 3️⃣ Updating State (VERY IMPORTANT ❗) -->
+
+setCount(count + 1);
+
+<!-- 
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+} -->
+
+4️⃣ State vs Props (INTERVIEW FAVORITE 🔥)
+
+5️⃣ Multiple States (REAL WORLD 💡)
+<!-- 
+function UserProfile() {
+  const [name, setName] = useState("Kajal");
+  const [age, setAge] = useState(22);
+
+  return (
+    <div>
+      <h2>{name}</h2>
+      <h3>{age}</h3>
+    </div>
+  );
+} -->
+
+1️⃣Counter app banao (Increment / Decrement)
+2️⃣ Button click par text change karo
+3️⃣ Name + Age ke liye 2 states use karo
+4️⃣ Ek child component me props + state dono use karo
+
+
+import React from 'react'
+import { useState } from 'react'
+
+const App = () => {
+      // 1️⃣ State to store count
+    const[count, setCount] = useState(0)
+
+      // 2️⃣ Functions to increment & decrement
+    const increment = () => setCount(count + 1);
+    const decrement = () => setCount(count - 1);
+
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+
+      <button onClick={increment}>Increment</button>
+
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  )
+}
+export default App
+
+---------------------------------------------------------------------------------
