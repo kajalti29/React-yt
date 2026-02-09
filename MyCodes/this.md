@@ -266,3 +266,174 @@ Ek baar likho
 Baar-baar use karo
 Same UI
 
+<!-- 8️⃣ Component Composition (BIG WORD, SIMPLE LOGIC) -->
+Component composition means using one component inside another component.
+Hindi:-
+Component composition ka matlab hota hai ek component ke andar doosra component use karna.
+
+<!-- Real-world Example -->
+App
+Header
+Content
+Footer
+<!-- 
+function Header() {
+  return <h1>Header</h1>;
+}
+
+function Footer() {
+  return <h1>Footer</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
+} -->
+
+Logic:
+App parent
+Header, Footer child
+Yehi composition hai
+
+<!-- 9️⃣ Export / Import Components (VERY IMPORTANT) -->
+Export and import are used to share components between different files.
+Hindi:-
+Export aur import ka use components ko ek file se doosri file me use karne ke liye hota hai.
+<!-- 
+Export
+function Header() {
+  return <h1>Header</h1>;
+}
+
+export default Header;
+
+🔹 Import
+import Header from "./Header";
+
+function App() {
+  return <Header />;
+} -->
+
+Logic:
+export → bahar bhejna
+import → andar lana
+-----------------------------------------------------------------------------------------------
+<!-- 5️⃣ Props  -->
+<!-- 1️⃣ What are props? -->
+Props are used to pass data from one component to another component in React. Props are read-only.
+
+Simple Logic
+Parent → data bhejta hai
+Child → data receive karta hai
+
+👉 Props = function parameters jaisa
+<!-- 
+function Greeting(props) {
+  return <h1>Hello {props.name}</h1>;
+} -->
+
+Use:
+<Greeting name="Kajal" />
+name = prop
+"Kajal" = value
+props.name se access
+
+<!-- 2️⃣ Passing data via props -->
+Component ko data attributes ke through diya jata hai aur props object se receive kiya jata hai.
+
+function User(props) {
+  return <p>Age: {props.age}</p>;
+}
+
+<User age={22} />
+
+
+Logic:
+<!-- {} → JavaScript value
+Number, string, boolean sab pass ho sakta hai -->
+
+Multiple props
+<User name="Kajal" age={22} city="Indore" />
+
+<!-- 3️⃣ Props vs Variables (VERY IMPORTANT 🔥)
+ -->
+ Variables component ke andar hote hain, jabki props parent component se aate hain.
+
+ function Demo(props) {
+  let count = 10;
+
+  return (
+    <div>
+      <p>{props.name}</p>
+      <p>{count}</p>
+    </div>
+  );
+}
+
+<!-- 
+Logic:
+props.name → bahar se
+count → andar ka variable -->
+
+
+<!-- 4️⃣ Props with functions (INTERVIEW FAVORITE ⭐)
+ -->
+React me functions bhi props ke through pass kiye ja sakte hain, mainly event handling ke liye.
+
+<!-- Real-world Logic -->
+Button click → Child
+Action handle → Parent
+
+function Child(props) {
+  return <button onClick={props.sayHello}>Click</button>;
+}
+
+function Parent() {
+  function sayHello() {
+    alert("Hello from Parent");
+  }
+
+  return <Child sayHello={sayHello} />;
+}
+
+Logic:
+Parent ne function diya
+Child ne use kiya
+Control parent ke paas
+
+
+<!-- 👉 “Props can be used to pass both data and functions.” -->
+Props ke through hum parent component se child component ko
+data (string, number, object) aur functions (events, handlers) dono bhej sakte hain.
+
+<!-- Yahan kya pass ho raha hai? -->
+Props	          Type
+title	          Data (string)
+onClickHandler	Function
+
+<!-- 📌 Output behavior -->
+Card me title show hoga
+Button click → parent ka function run hoga
+
+<!-- 5️⃣ Default Props -->
+Default props ka use tab hota hai jab parent koi value pass na kare.
+
+function Profile({ name = "Guest" }) {
+  return <h2>Hello {name}</h2>;
+}
+
+<!-- Q: Props mutable hote hain? -->
+👉 ❌ No, read-only
+<!-- Props ka data kaun change kar sakta hai? -->
+👉 Parent component
+<!-- Props aur state me difference? -->
+👉 Props = external, State = internal
+<!-- Function props kyu use hote hain? -->
+👉 Child → Parent communication
+
+1️⃣ Ek Student component banao (name, marks props)\
+-------------------------------------------------------------------------------------
