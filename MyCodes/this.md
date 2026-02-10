@@ -614,3 +614,32 @@ onScroll → element scroll होने पर
 
 <!-- onClick, onChange, onSubmit, onKeyDown, onFocus, onBlur -->
 
+<!-- 3️⃣ Basic Example: Button Click -->
+import React from "react";
+const App = () => {
+  // Function that runs on click
+  const handleClick = () => {
+    alert("Button Clicked!");
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click Me</button>
+    </div>
+  );
+};
+
+export default App;
+
+<!-- Arrow function -->
+const handleClick = () => {
+  alert("Button Clicked!");
+};
+
+<!-- Normal function -->
+function handleClick() {
+  alert("Button Clicked!");
+}
+
+ye dono use kr sakte hai 
+------------------------------------------------
