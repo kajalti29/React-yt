@@ -561,4 +561,56 @@ const App = () => {
 }
 export default App
 
----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+<!-- 7️⃣ Events in React -->
+Event Handling is the process of responding to user actions (like clicks, typing, mouse movements) or browser events (like page load).
+
+<!-- 2️⃣ Types of Events -->
+| Event Type    | Example      | What it does                                |
+| ------------- | ------------ | ------------------------------------------- |
+| `onClick`     | Button click | Triggered when a button is clicked          |
+| `onChange`    | Input field  | Triggered when input value changes          |
+| `onSubmit`    | Form         | Triggered when form is submitted            |
+| `onMouseOver` | Hover        | Triggered when mouse hovers over an element |
+| `onKeyDown`   | Keyboard     | Triggered when a key is pressed             |
+
+<!-- 1️⃣ Mouse Events -->
+onClick → Triggered when an element is clicked
+onDoubleClick → Triggered on double click
+onMouseEnter → When mouse enters an element
+onMouseLeave → When mouse leaves an element
+
+onClick → element click होने पर
+onDoubleClick → element double click होने पर
+onMouseEnter → mouse element में enter करे
+onMouseLeave → mouse element से बाहर जाए
+
+<!-- 2️⃣ Keyboard Events -->
+onKeyDown → When a key is pressed down
+onKeyUp → When a key is released
+
+onKeyDown → key दबते ही trigger
+onKeyUp → key छोड़ते ही trigger
+
+<!-- 3️⃣ Form / Input Events -->
+onChange → When input or textarea value changes
+onSubmit → When a form is submitted
+onFocus → When an input gains focus
+onBlur → When an input loses focus
+
+onChange → input या textarea का value change होने पर
+onSubmit → form submit होने पर
+onFocus → input पर focus आने पर
+onBlur → input का focus हटने पर
+
+<!-- 4️⃣ Other Useful Events -->
+onLoad → When image/media loads successfully
+onError → When image/media fails to load
+onScroll → When an element is scrolled
+
+onLoad → image/media load होने पर
+onError → image/media load fail होने पर
+onScroll → element scroll होने पर
+
+<!-- onClick, onChange, onSubmit, onKeyDown, onFocus, onBlur -->
+
