@@ -91,7 +91,7 @@ const [count, setCount] = React.useState(0);
 ----------------------------------------------------------------------
 <!-- 3️⃣ JSX (JavaScript XML) -->
 <!-- 1️⃣ What is JSX? -->
-JSX stands for JavaScript XML. JSX is a syntax extension of JavaScript that allows us to write HTML-like code inside JavaScript in React.
+JSX stands for JavaScript XML. It is a syntax extension of JavaScript that allows us to write HTML-like code inside JavaScript in React.
 JSX = JavaScript + HTML
 
 JSX looks like HTML but it is not HTML. JSX follows JavaScript rules.
@@ -99,6 +99,7 @@ JSX looks like HTML but it is not HTML. JSX follows JavaScript rules.
 <!-- const element = <h1>Hello JSX</h1>; -->
 👉 Ye dikhta HTML jaisa hai
 👉 But actually JavaScript object hota hai.
+
 <!-- 🔹 What is XML? -->
 XML stands for Extensible Markup Language. It is used to store and transport data in a structured and readable format.
 
@@ -137,6 +138,12 @@ Math Example
 <h2>Sum: {10 + 20}</h2>
 
 <!-- 4️⃣ JSX Rules (INTERVIEW GOLD 🥇) -->
+Q5: JSX rules?
+* One parent element
+* All tags closed
+* className
+* camelCase attributes
+
 🔹 Rule 1: One Parent Element
 
 return (
@@ -146,7 +153,7 @@ return (
   </div>
 );
 
-Wrong
+<!-- Wrong -->
 return (
   <h1>Hello</h1>
   <p>React</p>
@@ -188,9 +195,11 @@ Ternary operator use kiya'
 👉 Kyunki JSX expressions allow karta hai, statements nahi
 <!-- XML self-closing tags kyun strict hain? -->
 👉 XML strict syntax follow karta hai
-
 <!-- Q: JSX me XML ka role? -->
 👉 Syntax rules (closing, nesting)
+<!-- ❓ Logical Q: JSX me class kyu nahi likhte? -->
+👉 class JavaScript keyword hai
+✔️ Isliye className
 ------------------------------------------------------------------------------------------------------------------
 <!-- 🟢 PHASE 2: Components (CORE of React) -->
 <!-- 4️⃣ What is a Component? -->
@@ -216,6 +225,7 @@ JSX return kar raha
 UI ka ek part
 
 <!-- 5️⃣ Functional Components (MOST USED 🔥) -->
+👉 JavaScript function jo JSX return kare.
 A functional component is a JavaScript function that returns JSX. It is the most commonly used component type in modern React.
 Hndi:-
 Functional component ek JavaScript function hota hai jo JSX return karta hai. Aaj-kal React me ye sabse zyada use hota hai.
@@ -268,8 +278,7 @@ Same UI
 
 <!-- 8️⃣ Component Composition (BIG WORD, SIMPLE LOGIC) -->
 Component composition means using one component inside another component.
-Hindi:-
-Component composition ka matlab hota hai ek component ke andar doosra component use karna.
+👉 Ek component ke andar doosra component use karna
 
 <!-- Real-world Example -->
 App
@@ -434,6 +443,12 @@ function Profile({ name = "Guest" }) {
 👉 Props = external, State = internal
 <!-- Function props kyu use hote hain? -->
 👉 Child → Parent communication
+<!-- Props change kyu nahi kar sakte? -->
+👉 Props read-only hote hain
+👉 Control parent ke paas hota
+<!-- Props vs Variables -->
+Props → bahar se
+Variables → component ke andar
 
 1️⃣ Ek Student component banao (name, marks props).
 2️⃣ Ek Button component jisme click par parent function call ho
@@ -560,7 +575,10 @@ const App = () => {
   )
 }
 export default App
-
+<!-- useState kya return karta hai? -->
+👉 Array → [state, setState]
+<!-- Multiple states kaise manage karte? -->
+👉 Multiple useState hooks
 ----------------------------------------------------------------------------------
 <!-- 7️⃣ Events in React -->
 Event Handling is the process of responding to user actions (like clicks, typing, mouse movements) or browser events (like page load).
@@ -647,15 +665,342 @@ ye dono use kr sakte hai
 
 const [name, setName] = useState("");
 
-
 <!-- * Function banao → jo event par kaam karega -->
 
 const handleClick = () => { alert("Button Clicked!"); }
 const handleChange = (e) => { setName(e.target.value); }
 
-
 <!-- * Event lagao JSX me → onClick, onChange, onMouseOver -->
 
 <button onClick={handleClick}>Click Me</button>
 <input onChange={handleChange} value={name}/>
+
+2️⃣ onClick Event (MOST USED 🔥)
+<button onClick={handleClick}>
+3️⃣ onChange Event (VERY IMPORTANT ❗)
+<!-- onChange kyu use hota hai? -->
+👉 Input value track karne ke liye
+<!-- ❓ Q21: e.target.value kya hota hai? -->
+👉 Input ka current value
+----------------------------------------
+<!-- 🟢 PHASE 3: Rendering Logic -->
+<!-- 1️⃣ What is Conditional Rendering? -->
+Conditional rendering means displaying different UI elements based on a condition.
+Hindi:-
+Conditional rendering ka matlab hota hai condition ke basis par UI ko show ya hide karna.
+<!-- Real World Logic (Sabse Important) -->
+🧠 Example 1: Light Switch
+Switch ON → Light dikhegi
+Switch OFF → Light nahi dikhegi
+👉 Yahi Conditional Rendering hai.
+
+<!-- 2️⃣ if–else in React -->
+if–else is used outside JSX to decide what should be rendered.
+<!-- 
+function App() {
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    return <h1>Welcome</h1>;
+  } else {
+    return <h1>Please Login</h1>;
+  }
+} -->
+
+Logic:
+JSX expressions allow karta hai
+if–else = statement → bahar likhte hain
+
+<!-- 3️⃣ Ternary Operator (MOST USED 🔥) -->
+The ternary operator is used inside JSX for conditional rendering in a compact way.
+<!-- condition ? truePart : falsePart -->
+<!-- 
+function App() {
+  const isLoggedIn = false;
+
+  return (
+    <h1>
+      {isLoggedIn ? "Welcome User" : "Please Login"}
+    </h1>
+  );
+} -->
+
+Logic:
+Condition true → first value
+False → second value
+
+<!-- 4️⃣ Logical AND (&&) -->
+Logical AND (&&) is used when we want to render something only if a condition is true.
+Hindi:-
+Logical AND (&&) ka use tab hota hai jab condition true ho tabhi kuch render karna ho.
+
+<!-- 
+function App() {
+  const isAdmin = true;
+
+  return (
+    <div>
+      {isAdmin && <h1>Admin Panel</h1>}
+    </div>
+  );
+} -->
+
+Logic:
+True && JSX → JSX render
+False && JSX → kuch nahi
+
+<!-- Show / Hide Components (REAL WORLD ⭐) -->
+Components can be shown or hidden using state and conditional rendering.
+Hindi:-
+State aur condition ke through components ko show ya hide kiya ja sakta hai.
+<!-- 
+import { useState } from "react";
+
+function App() {
+  const [show, setShow] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setShow(!show)}>
+        Toggle
+      </button>
+
+      {show && <p>Hello React</p>}
+    </div>
+  );
+} -->
+
+Logic:
+Button click → state change
+State true → component show
+False → hide
+
+<!-- JSX me if–else direct kyu nahi? -->
+👉 Kyunki JSX expressions allow karta hai, statements nahi
+<!-- Q: Sabse common conditional rendering method? -->
+👉 Ternary operator
+<!-- Q: && kab use karte hain? -->
+👉 Jab sirf true case me render chahiye
+<!-- Q: Show/hide ka best way? -->
+👉 State + condition
+<!-- Logical Q: JSX me if–else kyu direct nahi? -->
+
+👉 JSX expressions allow karta hai, statements nahi
+
+<!-- ❓ Q24: Sabse common method? -->
+
+👉 Ternary operator
+
+<!-- ❓ Q25: && operator kab use hota hai? -->
+
+👉 Sirf true case me render karna ho
+=------------------------------------------------------------------------------
+<!-- 1️⃣ Rendering Lists using map() -->
+React me lists ko render karne ke liye JavaScript ke map() method ka use kiya jata hai.
+
+<!-- Real-World Logic -->
+Socho tumhare paas data list hai:
+Students
+Products
+Users
+Todos
+👉 Har item ka same design, sirf data alag
+<!-- 
+const fruits = ["Apple", "Banana", "Mango"];
+
+function App() {
+  return (
+    <div>
+      <h2>Fruit List</h2>
+      <ul>
+        {fruits.map((fruit) => (
+          <li>{fruit}</li>
+        ))}
+      </ul>
+    </div>
+  );
+} -->
+
+Logic:
+map() loop jaisa
+Har fruit ke liye <li> bana
+
+<!-- 2️⃣ What are Keys? -->
+Keys are special attributes used to uniquely identify list items in React.
+
+<!-- Real-World Example -->
+Socho class me roll number:
+Naam same ho sakta hai
+Roll number unique hota hai
+👉 Key = Roll Number
+
+{fruits.map((fruit, index) => (
+  <li key={index}>{fruit}</li>
+))}
+
+<!-- 3️⃣ Why Keys are Important? (VERY IMPORTANT 🔥) -->
+Keys help React optimize rendering by identifying which items have changed, added, or removed.
+
+<!-- 4️⃣ Best Key Practices (INTERVIEW GOLD 🥇) -->
+const users = [
+  { id: 1, name: "A" },
+  { id: 2, name: "B" }
+];
+
+{users.map(user => (
+  <p key={user.id}>{user.name}</p>
+))}
+
+<!-- 5️⃣ Dynamic Lists (REAL WORLD ⭐) -->👉 
+Dynamic Lists wo lists hoti hain jo user action ya data change hone par update hoti rehti hain (add, delete, update).
+
+<!-- Real-world examples: -->
+Todo list (task add / remove)
+Shopping cart (item add / remove)
+Student list (new student add)
+
+<!-- Key kyu zaroori hai? -->
+👉 Efficient rendering ke liye
+<!-- List kaise render karte hain? -->
+
+👉 map() method se
+
+<!-- Q27: Key kya hoti hai? -->
+
+👉 Unique identifier for list items
+
+<!-- ❓ Logical Q: Keys important kyu? -->
+
+👉 React ko fast re-render karne me help
+
+<!-- ❓ Q28: Index key kab use kar sakte? -->
+
+👉 Jab list static ho
+------------------------------------------------------------------------------------------------------------------------------
+<!-- 🟢 PHASE 4: Side Effects & Data -->
+<!-- 1️⃣ What are Side Effects? -->
+Side effects are operations that affect something outside the component, such as API calls, timers, subscriptions, DOM updates, or localStorage access.
+
+<!-- Examples -->
+Data fetch karna
+setInterval / setTimeout
+Event listeners add/remove
+
+<!-- useEffect Syntax -->
+useEffect is a React hook used to perform side effects in functional components.
+
+useEffect(() => {
+  // side effect code
+}, []);
+<!-- 
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    console.log("Component rendered");
+  });
+
+  return <h1>Hello</h1>;
+} -->
+
+
+<!-- 3️⃣ Dependency Array [] -->
+The dependency array controls when useEffect runs.
+Hindi:-
+Dependency array ye decide karta hai ki useEffect kab run hoga.
+
+<!-- Case 2: Empty dependency array [] -->
+useEffect(() => {
+  console.log("Runs only once");
+}, []);
+
+👉 Sirf first render (mount) par
+
+<!-- 🔹 Case 3: With dependencies -->
+useEffect(() => {
+  console.log("Count changed");
+}, [count]);
+
+👉 Jab count change ho tab
+
+<!-- 4️⃣ Cleanup Function (VERY IMPORTANT ❗) -->
+“Cleanup function is used to clean side effects like intervals, timers, or event listeners to prevent memory leaks.”
+
+Example: Fan / Light
+Fan ON kiya → chal raha hai
+Room chhodte time → Fan OFF ❌
+👉 OFF karna = Cleanup
+<!-- 
+useEffect(() => {
+  // Side effect start
+
+  return () => {
+    // Cleanup code
+  };
+}, []); -->
+
+🧩 Example (Timer cleanup)
+<!-- 
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Running...");
+  }, 1000);
+
+  return () => {
+    clearInterval(timer);
+  };
+}, []); -->
+Logic:
+Component start → timer start
+Component remove → timer stop
+Memory leak avoid ✔️
+<!-- 👉 Cleanup function return ke andar hota hai -->
+
+<!-- 5️⃣ Component Lifecycle (Basic) -->
+Component lifecycle refers to the phases a component goes through: mount, update, and unmount.
+
+🔁 Lifecycle Phases with useEffect
+| Phase   | useEffect                      |
+| ------- | ------------------------------ |
+| Mount   | `useEffect(() => {}, [])`      |
+| Update  | `useEffect(() => {}, [state])` |
+| Unmount | Cleanup function               |
+
+<!-- 
+useEffect(() => {
+  console.log("Mounted");
+
+  return () => {
+    console.log("Unmounted");
+  };
+}, []);
+ -->
+
+useEffect kab run hota hai?
+👉 Render ke baad
+
+<!-- Q: Empty dependency array ka matlab? -->
+👉 Run once (mount)
+
+<!-- Q: Cleanup function kyu chahiye? -->
+👉 Memory leaks avoid karne ke liye
+
+<!-- Q: API call kahan karte hain? -->
+👉 useEffect ke andar
+
+<!-- Side effects kya hote hain? -->
+👉 API calls, timers, subscriptions
+
+<!-- ❓ Q30: useEffect kab run hota hai? -->
+👉 Render ke baad
+
+<!-- ❓ Q31: Dependency array kya karta hai? -->
+👉 Effect kab run hoga decide karta hai
+
+<!-- ❓ Logical Q: [] ka matlab? -->
+👉 Sirf first render (mount)
+
+<!-- API call kahan likhte hain? -->
+👉 useEffect ke andar
+---------------------------------------------------------------------------------------------------------------------
 
