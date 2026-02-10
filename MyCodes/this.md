@@ -642,4 +642,20 @@ function handleClick() {
 }
 
 ye dono use kr sakte hai 
-------------------------------------------------
+---------------------------------------------------------------------------------
+<!-- * State define karo → jo value app track karegi -->
+
+const [name, setName] = useState("");
+
+
+<!-- * Function banao → jo event par kaam karega -->
+
+const handleClick = () => { alert("Button Clicked!"); }
+const handleChange = (e) => { setName(e.target.value); }
+
+
+<!-- * Event lagao JSX me → onClick, onChange, onMouseOver -->
+
+<button onClick={handleClick}>Click Me</button>
+<input onChange={handleChange} value={name}/>
+
