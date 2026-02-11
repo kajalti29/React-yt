@@ -1,6 +1,6 @@
 <!-- 1️⃣ What is React? -->
 React is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications. It is component-based and maintained by Meta (Facebook).
-It is Handles logic, state, props, JSX.
+It is Handles logic, state, props and JSX.h
 <!-- 
 Example:-
 function Hello(){
@@ -197,7 +197,7 @@ Ternary operator use kiya'
 👉 XML strict syntax follow karta hai
 <!-- Q: JSX me XML ka role? -->
 👉 Syntax rules (closing, nesting)
-<!-- ❓ Logical Q: JSX me class kyu nahi likhte? -->
+<!-- JSX me class kyu nahi likhte? -->
 👉 class JavaScript keyword hai
 ✔️ Isliye className
 ------------------------------------------------------------------------------------------------------------------
@@ -416,8 +416,7 @@ Control parent ke paas
 
 
 <!-- 👉 “Props can be used to pass both data and functions.” -->
-Props ke through hum parent component se child component ko
-data (string, number, object) aur functions (events, handlers) dono bhej sakte hain.
+Props ke through hum parent component se child component ko fdata (string, number, object) aur functions (events, handlers) dono bhej sakte hain.
 
 <!-- Yahan kya pass ho raha hai? -->
 Props	          Type

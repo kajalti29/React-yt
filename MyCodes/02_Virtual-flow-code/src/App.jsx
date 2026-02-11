@@ -14,3 +14,8 @@ function Counter() {
 }
 
 export default Counter;
+
+// 🧠 Logic:
+// Button click
+// State change
+// React updates only number, not full page
