@@ -269,7 +269,6 @@ State ko parent component me le jana.
 <Route path="/about" element={<About />} />
 
 ------------------------------------------------------------------------------------------------------------------------------------
-
 <!-- 1️⃣4️⃣ Context API -->
 Context API is used to avoid prop drilling.
 Hindi:-
@@ -415,7 +414,7 @@ Data ek direction me flow karta hai → bug kam hote hain
 * Netflix
 * WhatsApp Web
 
----
+--
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <!-- 🔹 17. What is One-way Data Binding? -->

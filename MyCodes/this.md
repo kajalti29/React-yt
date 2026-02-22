@@ -1,6 +1,7 @@
 <!-- 1️⃣ What is React? -->
-React is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications. It is component-based and maintained by Meta (Facebook).
-It is Handles logic, state, props and JSX.h
+React is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications. It is component-based and updates the UI efficiently using Virtual DOM.
+It is Handles logic, props JSX and state.
+👉 Created by Facebook(meta).
 <!-- 
 Example:-
 function Hello(){
