@@ -1,20 +1,7 @@
-<!-- 1️⃣ What is React? -->
-React is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications. It is component-based and updates the UI efficiently using Virtual DOM.
-It is Handles logic, props JSX and state.
-👉 Created by Facebook(meta).
-<!-- 
-Example:-
-function Hello(){
-    return <h1>Hello React</h1>;
-} -->
 
-Logic:
-Hello = component
-HTML jaisa dikhta hai (JSX)
-UI ka ek part return karta hai
 
-<!-- 2️⃣ Why React is Used? -->
-React is used because it is fast, reusable, easy to manage, and provides better performance using Virtual DOM.
+
+
 
 <!-- Why companies prefer React over plain JS? -->
 Companies prefer React because React provides a component-based architecture and efficient UI updates using Virtual DOM, which makes applications faster, scalable, and easier to maintain.
@@ -64,7 +51,6 @@ Virtual DOM real DOM ka lightweight copy hota hai. React pehle Virtual DOM updat
 Tum pura page dubara nahi likhte
 Sirf galat line erase karke sahi likhte ho
 👉 Same kaam Virtual DOM karta hai
-
 
 <!-- 🔁 Flow -->
 State change
