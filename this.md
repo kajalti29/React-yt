@@ -1,3 +1,15 @@
+React folder create :- npm create vite@latest New_folder_name
+
+Ex :-
+✔ Project name: … 5_react_code
+✔ Package name: … 5_react_code
+✔ Select a framework: › React
+✔ Select a variant: › JavaScript
+
+code run :- main  folder_name then current folder_name(current folder ko cd with current folder name aayega) 
+
+after that run :- npm run dev
+
 Tailwind ka use karne ke liye first of all- crate project name, then Instal tailwind
 <!-- npm install tailwindcss @tailwindcss/vite -->
 
@@ -6,11 +18,18 @@ then add the vite.config.js :-import tailwindcss from '@tailwindcss/vite'
   plugins: [react(),tailwindcss()],
 
 rafce:- isse bollar plate aa jayega
+
+<!--
+npm install
+npm install -D tailwindcss 
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p -->
 ------------------------------------------------------------------------------------
 📘 React Full Notes:-
 <!-- 1️⃣ What is React? -->
 React is a JavaScript library used to build fast and interactive user interfaces, especially single-page applications. It is component-based and updates the UI efficiently using Virtual DOM.
-It is Handles logic, props JSX and state.
+It is Handles logic, props, JSX and state.
 👉 Created by Facebook(meta).
 <!-- 
 Example:-
@@ -19,7 +38,7 @@ function Hello(){
 } -->
 
 Logic:
-Hello = component
+Here, Hello is a component.
 HTML jaisa dikhta hai (JSX) 
 UI ka ek part return karta hai
 
@@ -33,7 +52,7 @@ Instagram’s like button ❤️ does not reload the entire page — it only upd
 * Fast performance – It updates only the changed part of the page.
 * Reusable code – Components can be used again and again.
 * Virtual DOM – Makes updates faster and more efficient.
-* Easy to manage UI – Code is organized and easy to maintain
+* Easy to manage large application UI – Code is organized and easy to maintain
 
 <!-- Why companies prefer React over plain JS? -->
 Companies prefer React because React provides a component-based architecture and updates UI efficient using Virtual DOM, which makes applications faster, scalable, and easier to maintain.
@@ -66,19 +85,54 @@ Instagram
 Gmail
 Facebook
 Netflix
+When you click something, the page doesn’t reload fully.
+Only content changes.
 
 Task:-
 <!-- 👉 Name any 2 SPA websites you use daily. -->
 I use Gmail and YouTube daily.
 
+💻 Basic SPA Concept
+
+function App() {
+  const [page, setPage] = React.useState("home");
+
+  return (
+    <div>
+      <button onClick={() => setPage("home")}>Home</button>
+      <button onClick={() => setPage("about")}>About</button>
+
+      {page === "home" ? <h1>Home Page</h1> : <h1>About Page</h1>}
+    </div>
+  );
+}
+Explain:-
+This is a React functional component named App.
+It is using:
+useState → to store data
+onClick → event handling
+Conditional rendering → show different UI based on state.
+When user clicks:
+Home button → setPage("home")
+About button → setPage("about")
+💡 setPage() updates state
+💡 When state updates → React re-renders component
+This is ternary operator.
+If page === "home"
+👉 Show <h1>Home Page</h1>
+Else
+👉 Show <h1>About Page</h1>
+
+
 <!-- 6️⃣ Virtual DOM (MOST IMPORTANT 🔥) -->
 Virtual DOM is a lightweight copy of the real DOM.React updates only the changed parts by comparing old and new virtual DOM (diffing process)
 
 <!-- Real Life Example -->
-📘 Notebook analogy:
-Tum pura page dubara nahi likhte
-Sirf galat line erase karke sahi likhte ho
-👉 Same kaam Virtual DOM karta hai
+Imagine you edit a paragraph in MS Word.
+Instead of reprinting the entire book 📖
+Only that paragraph gets updated.
+
+That’s Virtual DOM logic.
 
 <!-- 🔁 Flow -->
 * State change
@@ -94,6 +148,7 @@ const [count, setCount] = React.useState(0);
   Click Me
 </button>
 
+🟢 5️⃣ Real DOM vs Virtual DOM
 <!-- Q: Is React framework? -->
 👉 ❌ No, it is a library.
 <!-- Q: Who developed React? -->
