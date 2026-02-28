@@ -344,25 +344,6 @@ So I can train you accordingly.
 
 ----------------------------------------------------
 
-<!-- 1. What is React? -->
-React is a JavaScript library used to build fast user interfaces, especially single-page applications (SPA).
-It is Handles logic, state, props, JSX
-
-<!-- 2. Why is React used? -->
-👉 Because React is:
-Fast performance
-Component-based structure
-Reusable code
-Virtual DOM
-Easy to manage UI
-
-<!-- 3. What is a Single Page Application (SPA)? -->
-👉 “In an SPA (Single Page Application), the page does not reload; only the content changes.”
-
-📌 Example: Gmail, Facebook
-
-Hindi:-
-SPA me page reload nahi hota, sirf content change hota hai.
 
 <!-- 4. What are components in React? -->
 A Component is a reusable and independent part of a user interface in React.
@@ -419,8 +400,6 @@ No, JSX is not mandatory but recommended.
 Hindi:
 Nahi, JSX compulsory nahi hai par use karna better hota hai.
 
-<!-- 8. What is the difference between HTML and JSX? -->
-👉 HTML is used to build web pages, while JSX is used in React to write UI inside JavaScript.
 
 <!-- 9. What are props? -->
 Props are used to pass data from parent component to child component.
@@ -484,8 +463,6 @@ Sirf <h1> ka value update hota hai
 <!-- 14. Why is React fast? -->
 Because it updates only changed parts using Virtual DOM.
 
-Hindi:
-Kyuki React sirf changed part update karta hai.
 
 <!-- 15. What is one-way data binding? -->
 Data flows in one direction (Parent ➝ Child), which makes debugging easier.
