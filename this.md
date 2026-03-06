@@ -275,6 +275,45 @@ function Welcome() {
 }
 export default Welcome; -->
 
+
+----------------------------------------------------------------------------
+import React from 'react'
+import Navbar from "./components/Navbar";
+
+const App = () => {
+  return (
+    <div>
+      <Navbar/>
+      <h1>Welcome</h1>
+    </div>
+  )
+}
+
+export default App
+
+
+<!-- Components -> Navbar -->
+import React from 'react'
+
+const navbar = () => {
+  return (
+    <div>
+      <nav style={{display:"flex", justifyContent:"space-between", alignItems:"center", gap:"30px", background:"black",  color:"white", padding:"10px"}}>
+        <h2>MyWebsite</h2>
+
+        <ul style={{display:"flex", gap:"15px", listStyle:"none"}}>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </div>
+  )
+}
+
+export default navbar
+
+----------------------------------------------------------------------------
 ✅ Types
 1. Functional Component (Most used)
 2. Class Component (Old way)
@@ -294,7 +333,7 @@ Class → lifecycle methods use karta tha
 
 <!--6️⃣ Component Naming Rules-->
 A Component names must start with a capital letter Because React uses JSX, not pure HTML.
-❌ Wrong
+❌ Wrong 
 <!-- 
 function header() {
   return <h1>Header</h1>;
@@ -364,7 +403,40 @@ function Child(props) {
 <Child name="Kajal" 
 
 /> -->
+-----------------------------------------------------
+Props
+<!-- Parent Component:- -->
+import React from 'react'
+import User from './Component/User'
 
+const App = () => {
+  return (
+    <div>
+        <User name="Ram" age="22"/>
+        <User name="Aman" age="25"/>
+    </div>
+  )
+}
+
+export default App 
+
+
+
+<!-- Child Component:- -->
+import React from 'react'
+
+const User = (props) => {
+  return (
+    <div>
+      <h1>Name: {props.name}</h1>
+      <p>Age: {props.age}</p>
+    </div>
+  )
+}
+
+export default User
+
+-----------------------------------------------------
 <!-- 1️⃣ Passing Props -->
 Props are passed like HTML attributes inside a component.
 
@@ -405,9 +477,9 @@ If name is undefined → default value is used.
 <!-- Props vs Variables -->
 Props → bahar se
 Variables → component ke andar
--------------------------------------------------------
+-----------------------------------------------------
 6️⃣ State
-* useState Hook
+* useState Hook  
 * Updating state
 * Counter example
 * Controlled input field
