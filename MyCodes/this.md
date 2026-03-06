@@ -5,44 +5,6 @@
 
 
 
-<!-- 5️⃣ JSX with JavaScript (REAL WORLD) -->
-JSX allows us to combine JavaScript logic with UI, making code more dynamic and readable.
-Hindi:-
-JSX hume JavaScript logic aur UI ko ek saath likhne deta hai, jisse code dynamic aur readable ho jata hai.
-<!-- 
-function App() {
-  const isLoggedIn = true;
-
-  return (
-    <h1>{isLoggedIn ? "Welcome User" : "Please Login"}</h1>
-  );
-} -->
-
-Logic:
-Condition JS se
-UI JSX se
-Ternary operator use kiya'
-
-<!-- Q: Is JSX mandatory in React? -->
-👉 ❌ No, but recommended
-<!-- Q: Can browser read JSX directly? -->
-👉 ❌ No
-<!-- Q: JSX me if-else kyun nahi? -->
-👉 Kyunki JSX expressions allow karta hai, statements nahi
-<!-- XML self-closing tags kyun strict hain? -->
-👉 XML strict syntax follow karta hai
-<!-- Q: JSX me XML ka role? -->
-👉 Syntax rules (closing, nesting)
-<!-- JSX me class kyu nahi likhte? -->
-👉 class JavaScript keyword hai
-✔️ Isliye className
-------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
 
 
 <!-- 8️⃣ Component Composition (BIG WORD, SIMPLE LOGIC) -->
@@ -340,8 +302,6 @@ Roll number unique hota hai
   <li key={index}>{fruit}</li>
 ))}
 
-
-
 <!-- 4️⃣ Best Key Practices (INTERVIEW GOLD 🥇) -->
 const users = [
   { id: 1, name: "A" },
@@ -359,8 +319,6 @@ Dynamic Lists wo lists hoti hain jo user action ya data change hone par update h
 Todo list (task add / remove)
 Shopping cart (item add / remove)
 Student list (new student add)
-
-
 ------------------------------------------------------------------------------------------------------------------------------
 <!-- 🟢 PHASE 4: Side Effects & Data -->
 <!-- 1️⃣ What are Side Effects? -->
