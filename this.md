@@ -497,6 +497,8 @@ Cart item count, Login status, Toggle button, Counter number,
 Form input value.
 <!--
  const [count, setCount] = useState(0); -->
+ ----------------------------------------------------
+ <!-- State:- -->
 
  import { useState } from "react";
 
@@ -512,50 +514,35 @@ function Counter() {
     </div>
   );
 }
-
+----------------------------------------------------
  <!-- 4️⃣ What are Hooks? -->
- Hooks are special functions that allow functional components to use state and lifecycle features.
+Hooks are special functions that allow functional components to use state and lifecycle features.
 Examples:
 useState
 useEffect
 
  <!-- 5️⃣ useState Hooks (Most Important 🔥):- -->
-useState is a React Hook that allows functional components to use state.
-It returns an array with:
-Current state value
-Function to update the state
+useState is a React Hook that is manage state.
 
 🔹 Basic Syntax
-const [count, setCount] = useState(0);
+<!-- const [count, setCount] = useState(0); -->
 
-count → current value
-setCount → function to update
-0 → initial value
+<!-- useEffect Hook -->
+UseEffect is a React Hook that handle side effects(API call, Timer, Event listener, DOM Update).
+<!-- 
+useEffect(()=>{
+ console.log("Component Mounted");
+},[]); -->
 
-
-🧠 Logic
-Initial value = 0
-Click button
-setCount() updates state
-Component re-renders
-UI updates automatically
-
-<!-- import { useState } from "react";
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-    </>
-  );
-} -->
-
-🟢 Multiple State
-We can use multiple useState hooks.
-
+Other Hooks
+useRef → DOM reference
+useContext → Global state
+useReducer → Complex state
+useMemo → Performance optimization
+useCallback → Function memoization
+-----------------------------------------------------
+useState:-
+<!-- 
 import { useState } from "react";
 
 function User() {
@@ -571,19 +558,12 @@ function User() {
       </button>
     </>
   );
-}
+} -->
 
 <!-- Why state updates are asynchronous? -->
 Because React batches updates for performance optimization.
 
-<!-- 🚀 6️⃣ useEffect -->
-useEffect is used to perform side effects in functional components.
-Examples:
-API call
-Timer
-Event listener
-DOM update
-
+🚀 6️⃣ useEffect:-
 <!-- 
 import { useEffect } from "react";
 
@@ -597,7 +577,7 @@ function Example() {
  -->
 “Empty dependency array means it runs only once after component mounts.”
 
---------------------------------------------------------
+-----------------------------------------------------
 7️⃣ Event Handling
 onClick
 onChange
@@ -668,26 +648,79 @@ function App() {
     </form>
   );
 }
-====================================================================================================
-🟡 LEVEL 2 – Intermediate React
-8️⃣ Conditional Rendering
-if-else
-Ternary operator
-&& operator
-
-<!-- Conditional Rendering -->
-Conditional rendering means displaying different UI elements based on a condition.
-Hindi:-
-Conditional rendering ka matlab hota hai condition ke basis par UI ko show ya hide karna.
+=======================================================================================
+<!-- 1️⃣ What is Conditional Rendering? -->
+Conditional rendering means displaying different UI components based on a condition.
 <!-- Real World Logic (Sabse Important) -->
 🧠 Example 1: Light Switch
 Switch ON → Light dikhegi
 Switch OFF → Light nahi dikhegi
 👉 That's Conditional Rendering hai
 
-{isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}
 
------------------------------------
+{isLogin ? <Home /> : <Login />}
+
+If isLogin is true → <Home /> is rendered.
+If isLogin is false → <Login /> is rendered.
+
+
+<!-- 23. What are keys in React? -->
+Keys are special attributes used to uniquely identify elements in a list.
+<!-- 
+const user = ["Ran", "Aman", "Ravi"];
+
+users.map((user, index) => (
+  <li key={index}>{user}</li>
+)); -->
+
+
+<!-- 24. Why are keys important? -->
+Keys help React to:
+Identify which items have changed
+Update only the modified elements
+Improve rendering performance
+Without keys, React may re-render the entire list, which is inefficient.
+
+
+<!-- 25. What is lifting state up? -->
+Sharing state between components.
+
+<Child sendData={setValue} />
+
+<!-- 
+function Parent() {
+  const [value, setValue] = useState("");
+
+  return <Child sendData={setValue} />;
+} -->
+
+
+
+<!-- 26. What is prop drilling? -->
+Prop drilling means passing data (props) from a parent component to deeply nested child components, even when some middle components don’t need that data.
+<App>
+  <Parent>
+    <Child>
+      <GrandChild />
+    </Child>
+  </Parent>
+</App>
+
+Agar App ka data directly GrandChild ko chahiye,
+par data ko Parent aur Child ke through pass karna pade → prop drilling
+
+
+<!-- 27. What is Context API? -->
+Context API is used to avoid prop drilling.
+
+<!-- 
+const UserContext = createContext();
+
+<UserContext.Provider value="Ram">
+  <Child />
+</UserContext.Provider> -->
+
+
 <!-- 2️⃣ if–else in React -->
 “We can use normal JavaScript if/else statements outside JSX to render conditionally.”
 <!-- 
@@ -702,7 +735,7 @@ function App() {
 Logic:
 JSX expressions allow karta hai
 if–else = statement → bahar likhte
-----------------------------------
+----------------------------------------------------
 <!-- 3️⃣ Ternary Operator (MOST USED 🔥) -->
 The ternary operator is used inside JSX for conditional rendering.
 
@@ -722,7 +755,7 @@ function App() {
 Logic:
 Condition true → first value
 False → second value
-------------------------------------
+----------------------------------------------------
 <!-- 4️⃣ && operator-->
 Used when you want to render something only if condition is true. 
 <!-- 
@@ -738,119 +771,115 @@ function App() {
 Logic:
 True && JSX → JSX render
 False && JSX → kuch nahi
--------------------------------------------------
-9️⃣ Lists & Keys
-<!-- 🔥 9. What is Key in React? -->
-
-Key is a special prop used when rendering lists.
-It helps React identify which items changed, added, or removed.
-In React, we use the map() function to render lists of data dynamically.
-
-<!-- Real-Life Example -->
-Think of:
-Product list
-Comments
-Todo items
-All are arrays rendered dynamically
-
-<!-- 9️⃣ Lists & Keys -->
-Keys help React identify elements.
-
-const users = ["A", "B", "C"];
-
-{users.map((user, index) => (
-  <li key={index}>{user}</li>
-))}
-
-<!-- 
-const users = [
-  { id: 1, name: "A" },
-  { id: 2, name: "B" }
-];
-
-{users.map(user => (
-  <p key={user.id}>{user.name}</p>
-))} -->
-
-2️⃣ Unique Keys (VERY IMPORTANT 🔥
-Keys help React identify which items changed, added, or removed.
-Keys must be unique.
-
-function App() {
-  const users = [
-    { id: 1, name: "Kajalti" },
-    { id: 2, name: "Rahul" }
-  ];
-
-  return (
-    <ul>
-      {users.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
-}
-
-<!-- 3️⃣ Why Keys are Important? (VERY IMPORTANT 🔥) -->
-Keys help React optimize rendering by identifying which items have changed, added, or removed.
-
-<!-- 5️⃣ Dynamic Lists-->
-Dynamic Lists wo lists hoti hain jo user action ya data change hone par update hoti rehti hain (add, delete, update).
-
-<!-- Real-world examples: -->
-Todo list (task add / remove)
-Shopping cart (item add / remove)
-Student list (new student add)
-
----------------------------------------------------------------------------------------------------
-🟡 PHASE 2: React Hooks (Very Important for Interview)
-?
+-----------------------------------------------------
 ----------------------------------------------------------------------------------------------------
-🔵 PHASE 3: Forms & API
-1️⃣5️⃣ Controlled Components
-Input handling
-Form validation
-1️⃣6️⃣ Uncontrolled Components
-useRef with forms
-1️⃣7️⃣ API Integration
-fetch()
-axios
-Loading & Error handling
-
-<!-- Controlled Components -->
-<!-- 27. What is Context API? -->
-Context API is used to avoid prop drilling.
-
 <!-- 29. Controlled vs uncontrolled components? -->
-Controlled components are managed by React state, while uncontrolled components are managed by the DOM.
+A Controlled Component is a form element whose value is controlled by React state.
+<!-- How it works -->
+User types in input
+onChange event runs
+setName() updates state
+UI re-renders
 
 <!-- 
 import { useState } from "react";
 
-function Controlled() {
+function Form() {
   const [name, setName] = useState("");
 
   return (
-    <input
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-    />
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <h2>Your Name: {name}</h2>
+    </div>
   );
-} -->
+}
+
+export default Form; -->
 
 
+<!-- Form Validation Example -->
+import { useState } from "react";
+
+function Form() {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (email === "") {
+      alert("Email is required");
+    } else {
+      alert("Form submitted");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+<!-- Uncontrolled Component:-  -->
+uncontrolled components are managed by the DOM.
+
+<!-- 
+import { useRef } from "react";
+
+function Form() {
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
+}
+
+export default Form;
+ -->
+
+ Difference: Controlled vs Uncontrolled
+
+ | Controlled             | Uncontrolled   |
+| ---------------------- | -------------- |
+| Managed by React state | Managed by DOM |
+| Uses `useState`        | Uses `useRef`  |
+| Easier validation      | Less control   |
+
+<!-- 1️⃣7️⃣ API Integration in React -->
+React apps often fetch data from APIs.
+
+Two common methods:
+1️⃣ fetch()
+<!-- 
+fetch("https://api.com/data")
+.then(res=>res.json())
+.then(data=>console.log(data)) -->
+
+2️⃣ axios 
+
+<!-- axios.get("/users") -->
 --------------------------------------------------------------------------------------------------
-🟣 PHASE 4: Routing
-1️⃣8️⃣ React Router
-Install React Router
-BrowserRouter
-Routes
-Route
-useParams
-useNavigate
-
 <!-- React Router -->
-React Router is a library used in React applications to enable client-side routing. It allows navigation between different components or pages without reloading the entire webpage.
+React Router allows navigation between pages in a React application.
 
 <!-- 🌍 Real-Life Example -->
 Imagine a website with:
@@ -863,35 +892,39 @@ The URL changes
 The component changes
 The page does NOT reload
 This makes the app faster and smoother.
-----------------------------------------------------------------------------------------------
-🟠 LEVEL 3 – Advanced React
-1️⃣5️⃣ Context API
-Global state
-createContext
-useContext
-1️⃣6️⃣ Custom Hooks
-Why custom hooks?
-Creating reusable logic
-1️⃣7️⃣ useReducer
-Complex state handling
-Reducer function
-1️⃣8️⃣ Performance Optimization
-React.memo
-useMemo 
-useCallback
-1️⃣9️⃣ Lazy Loading
-React.lazy
-Suspense
-2️⃣0️⃣ Error Boundaries
-🔵 LEVEL 4 – Real World React
-2️⃣1️⃣ API Integration
-Fetch
-Axios
-Loading state
-Error handling
-2️⃣2️⃣ CRUD Operations
-Create
-Read
-Update
-Delete
 
+<!-- Important concepts -->
+BrowserRouter
+Route
+Link
+NavLink
+Dynamic Routing
+----------------------------------------------------------------------------------------------
+9. Optimization (Important for Interview)
+
+<!-- Code Splitting -->
+Code splitting breaks large JavaScript files into smaller chunks.
+<!-- Benefits -->
+Faster loading
+Smaller bundle size
+Better performance
+
+
+<!-- React.memo -->
+React.memo is a Higher Order Component (HOC) that prevents unnecessary re-rendering of a component.
+If the props do not change, the component will not re-render.
+
+Hindi:-
+Component ko unnecessary re-render hone se bachata hai. Agar props change nahi hue to component dubara render nahi hoga.
+
+<!-- useMemo -->
+Expensive calculation ko cache karta hai.
+
+
+<!-- useCallback -->
+Function ko memorize karta hai
+
+
+<!-- Avoid unnecessary re-renders -->
+React me jab state ya props change hota hai tab component re-render hota hai.
+Unnecessary re-render avoid karne ke ways:
