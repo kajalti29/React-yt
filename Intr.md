@@ -370,9 +370,157 @@ return (
 }
 
 export default Counter;
-
+-------------------------------------------------------
 <!--2.  Todo App -->
 Add task
 Show task list
 Delete task
+
+
+import React, { useState } from "react";
+
+function App() {
+
+  const [task, setTask] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = () => {     //function
+    if(task === "") return;
+
+    setTodos([...todos, task]);
+    setTask("");
+  };
+
+  const deleteTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="todo-container">
+      <h1>Todo App</h1>
+
+      <input
+        type="text"
+        value={task}
+        onChange={(e)=>setTask(e.target.value)}
+        placeholder="Enter task"
+      />
+
+      <button onClick={addTodo}>Add</button>
+
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo}
+            <button onClick={()=>deleteTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  );
+}
+
+export default App;
+------------------------------------------------------------------
+import React, { useState } from "react";
+
+function App() {
+
+  // State to store current input task
+  // Yeh state input box me likha hua current task store karti hai
+  const [task, setTask] = useState("");
+
+  // State to store all todo items in an array
+  // Yeh state saare todos (tasks ki list) ko array me store karti hai
+  const [todos, setTodos] = useState([]);
+
+  // Function to add a new todo
+  // Yeh function naya task list me add karta hai
+  const addTodo = () => {
+
+    // If input is empty, stop the function
+    // Agar input empty hai to function yahi ruk jayega
+    if (task === "") return;
+
+    // Add new task to existing todos array
+    // ...todos ka matlab hai purane todos copy karo aur naya task add karo
+    setTodos([...todos, task]);
+
+    // Clear the input field after adding task
+    // Task add hone ke baad input box ko clear kar dete hain
+    setTask("");
+  };
+
+  // Function to delete a todo item
+  // Yeh function kisi task ko delete karta hai
+  const deleteTodo = (index) => {
+
+    // filter() removes the clicked item using index
+    // filter() se us index wale task ko remove kar rahe hain
+    const newTodos = todos.filter((_, i) => i !== index);
+
+    // Update state with new todos array
+    // Naye array se state update kar dete hain
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="todo-container">
+
+      {/* App heading */}
+      {/* App ka heading */}
+      <h1>Todo App</h1>
+
+      {/* Input field where user types task */}
+      {/* Input field jahan user task likhta hai */}
+      <input
+        type="text"
+        value={task}
+
+        // Update task state when user types
+        // User jab type karega tab state update hogi
+        onChange={(e) => setTask(e.target.value)}
+
+        placeholder="Enter task"
+      />
+
+      {/* Button to add todo */}
+      {/* Button jo task ko list me add karta hai */}
+      <button onClick={addTodo}>Add</button>
+
+      {/* Todo list rendering */}
+      {/* Todos ko screen par show karne ke liye */}
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+
+            {/* Show todo text */}
+            {/* Todo text display karna */}
+            {todo}
+
+            {/* Delete button */}
+            {/* Delete button task remove karega */}
+            <button onClick={() => deleteTodo(index)}>
+              Delete
+            </button>
+
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------
+<!-- 3. Weather App -->
+Logic
+User enters city
+Call weather API
+Store data in state
+Show temperature
 
