@@ -98,11 +98,12 @@ Netflix
 When you click something, the page doesn’t reload fully.
 Only content changes.
 
+<!-- Q: Benefit of SAP? -->
+👉 Fast, smooth user experience.
+
 Task:-
 <!-- 👉 Name any 2 SPA websites you use daily. -->
 I use Gmail and YouTube daily.
-
-💻 Basic SPA Concept
 
 function App() {
   const [page, setPage] = React.useState("home");
@@ -141,7 +142,6 @@ Virtual DOM is a lightweight copy of the real DOM.React updates only the changed
 Imagine you edit a paragraph in MS Word.
 Instead of reprinting the entire book 📖
 Only that paragraph gets updated.
-
 That’s Virtual DOM logic.
 
 <!-- 🔁 Flow -->
@@ -170,8 +170,6 @@ const [count, setCount] = React.useState(0);
 👉 ❌ No, it is a library.
 <!-- Q: Who developed React? -->
 👉 Meta (Facebook) 2013
-<!-- Q: Benefit of SAP? -->
-👉 Fast, smooth user experience.
 ------------------------------------------------------
 🔥 2️⃣ Setup & Environment
 * Node.js install
@@ -187,6 +185,11 @@ JSX stands for JavaScript XML. It is a syntax extension for JavaScript that allo
 <!-- const element = <h1>Hello JSX</h1>; -->
 👉 Ye dikhta HTML jaisa hai
 👉 But actually JavaScript object hota hai.
+
+<!-- 👉 Why use JSX? -->
+Easy to read
+Looks like HTML
+Faster UI writing 
 
 <!--What is XML? -->
 XML stands for Extensible Markup Language. It is used to store and transport data in a structured and readable format.
@@ -275,7 +278,6 @@ function Welcome() {
 }
 export default Welcome; -->
 
-
 ----------------------------------------------------------------------------
 import React from 'react'
 import Navbar from "./components/Navbar";
@@ -310,9 +312,7 @@ const navbar = () => {
     </div>
   )
 }
-
 export default navbar
-
 ----------------------------------------------------------------------------
 ✅ Types
 1. Functional Component (Most used)
@@ -387,22 +387,12 @@ Props are read-only and help make components reusable and dynamic.
 Simple Logic
 Parent → data bhejta hai
 Child → data receive karta hai
-
 <!-- 
-function Student(props) {
-  return <h2>{props.name}</h2>
-} 
--->
-
-👉 Parent → Child
-<!-- 
-function Child(props) {
-  return <h1>{props.name}</h1>
+function Welcome(props){
+  return <h1>Hello {props.name}</h1>;
 }
-
-<Child name="Kajal" 
-
-/> -->
+<Welcome name="Rahul" />
+ -->
 -----------------------------------------------------
 Props
 <!-- Parent Component:- -->
@@ -420,8 +410,6 @@ const App = () => {
 
 export default App 
 
-
-
 <!-- Child Component:- -->
 import React from 'react'
 
@@ -433,7 +421,6 @@ const User = (props) => {
     </div>
   )
 }
-
 export default User
 
 -----------------------------------------------------
@@ -497,6 +484,15 @@ Cart item count, Login status, Toggle button, Counter number,
 Form input value.
 <!--
  const [count, setCount] = useState(0); -->
+
+
+<!-- 6. Difference between Props and State -->
+ | Props              | State                    |
+| ------------------ | ------------------------ |
+| Passed from parent | Managed inside component |
+| Read-only          | Can be changed           |
+| Immutable          | Mutable                  |
+
  ----------------------------------------------------
  <!-- State:- -->
 
@@ -514,31 +510,76 @@ function Counter() {
     </div>
   );
 }
+----------------------------------------------------------------------------
+<!-- 5. Event Handling -->
+👉 React uses camelCase
+<!-- 
+function ClickBtn() {
+  function handleClick() {
+    alert("Clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+} -->
 ----------------------------------------------------
  <!-- 4️⃣ What are Hooks? -->
 Hooks are special functions that allow functional components to use state and lifecycle features.
-Examples:
-useState
-useEffect
-
- <!-- 5️⃣ useState Hooks (Most Important 🔥):- -->
-useState is a React Hook that is manage state.
 
 🔹 Basic Syntax
 <!-- const [count, setCount] = useState(0); -->
+ 
+ <!-- 5️⃣ useState Hooks (Most Important 🔥):- -->
+useState is a React Hook that is manage state.
 
-<!-- useEffect Hook -->
+import { useState } from "react";
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>+</button>
+    </div>
+  );
+}
+useState is used to manage local component state in functional components.
+----------------------------------------------------------------------------
+<!-- 🔁 2. useEffect (VERY IMPORTANT 🔥🔥) -->
 UseEffect is a React Hook that handle side effects(API call, Timer, Event listener, DOM Update).
-<!-- 
-useEffect(()=>{
- console.log("Component Mounted");
-},[]); -->
+👉 Used for:
+API calls
+Side effects 
+Lifecycle handling
 
-Other Hooks
-useRef → DOM reference
+👉 3 Types:
+<!-- ✅ 1. Run on Every Render  -->
+useEffect(() => {
+  console.log("Runs every time");
+});
+
+<!-- ✅ 2. Run Only Once (like componentDidMount) -->
+useEffect(() => {
+  console.log("Runs once");
+}, []);
+
+<!-- ✅ 3. Run on Dependency Change -->
+useEffect(() => {
+  console.log("Runs when count changes");
+}, [count]);  
+---------------------------------------------------------------------------
+<!-- useRef →  -->
+17. What is useRef?
+useRef is used to access DOM elements directly.
+<!-- const inputRef = useRef(); -->
+
 useContext → Global state
 useReducer → Complex state
-useMemo → Performance optimization
+
+<!-- useMemo →  -->
+useMemo optimizes performance by memoizing expensive calculations.
+
+<!-- const value = useMemo(()=>calculate(num),[num]) -->
+
 useCallback → Function memoization
 -----------------------------------------------------
 useState:-
@@ -648,7 +689,7 @@ function App() {
     </form>
   );
 }
-=======================================================================================
+----------------------------------------------------------------------------
 <!-- 1️⃣ What is Conditional Rendering? -->
 Conditional rendering means displaying different UI components based on a condition.
 <!-- Real World Logic (Sabse Important) -->
@@ -657,12 +698,22 @@ Switch ON → Light dikhegi
 Switch OFF → Light nahi dikhegi
 👉 That's Conditional Rendering hai
 
-
 {isLogin ? <Home /> : <Login />}
 
 If isLogin is true → <Home /> is rendered.
 If isLogin is false → <Login /> is rendered.
 
+<!-- 
+function App(){
+  let isLogin = true;
+
+  return ( 
+    <div>
+      {isLogin ? <h1>Welcome</h1> : <h1>Please Login</h1>}
+    </div>
+  );
+}
+ -->
 
 <!-- 23. What are keys in React? -->
 Keys are special attributes used to uniquely identify elements in a list.
@@ -673,14 +724,11 @@ users.map((user, index) => (
   <li key={index}>{user}</li>
 )); -->
 
-
 <!-- 24. Why are keys important? -->
 Keys help React to:
-Identify which items have changed
-Update only the modified elements
-Improve rendering performance
-Without keys, React may re-render the entire list, which is inefficient.
-
+Helps React identify elements
+Improves performance
+Avoids re-render issues
 
 <!-- 25. What is lifting state up? -->
 Sharing state between components.
@@ -693,8 +741,6 @@ function Parent() {
 
   return <Child sendData={setValue} />;
 } -->
-
-
 
 <!-- 26. What is prop drilling? -->
 Prop drilling means passing data (props) from a parent component to deeply nested child components, even when some middle components don’t need that data.
@@ -709,10 +755,8 @@ Prop drilling means passing data (props) from a parent component to deeply neste
 Agar App ka data directly GrandChild ko chahiye,
 par data ko Parent aur Child ke through pass karna pade → prop drilling
 
-
 <!-- 27. What is Context API? -->
-Context API is used to avoid prop drilling.
-
+Context API allows sharing data globally without prop drilling.
 <!-- 
 const UserContext = createContext();
 
@@ -775,6 +819,9 @@ False && JSX → kuch nahi
 ----------------------------------------------------------------------------------------------------
 <!-- 29. Controlled vs uncontrolled components? -->
 A Controlled Component is a form element whose value is controlled by React state.
+
+<input value={name} onChange={(e)=>setName(e.target.value)} />
+
 <!-- How it works -->
 User types in input
 onChange event runs
@@ -835,6 +882,8 @@ function Form() {
 <!-- Uncontrolled Component:-  -->
 uncontrolled components are managed by the DOM.
 
+<input ref={inputRef} />
+
 <!-- 
 import { useRef } from "react";
 
@@ -879,7 +928,9 @@ fetch("https://api.com/data")
 <!-- axios.get("/users") -->
 --------------------------------------------------------------------------------------------------
 <!-- React Router -->
-React Router allows navigation between pages in a React application.
+React Router is used for navigation between pages in React apps.
+
+<Route path="/about" element={<About />} />
 
 <!-- 🌍 Real-Life Example -->
 Imagine a website with:
@@ -899,6 +950,19 @@ Route
 Link
 NavLink
 Dynamic Routing
+
+<!-- 15. What is Fragment in React? -->
+React Fragment allows grouping multiple elements without adding extra DOM node.
+
+<>
+  <h1>Hello</h1>
+  <p>Welcome</p>
+</>
+
+<!-- 24. What is Lazy Loading in React? -->
+Loading components only when needed to improve performance.
+
+<!-- const Home = React.lazy(()=>import("./Home")) -->
 ----------------------------------------------------------------------------------------------
 9. Optimization (Important for Interview)
 
@@ -910,21 +974,3 @@ Smaller bundle size
 Better performance
 
 
-<!-- React.memo -->
-React.memo is a Higher Order Component (HOC) that prevents unnecessary re-rendering of a component.
-If the props do not change, the component will not re-render.
-
-Hindi:-
-Component ko unnecessary re-render hone se bachata hai. Agar props change nahi hue to component dubara render nahi hoga.
-
-<!-- useMemo -->
-Expensive calculation ko cache karta hai.
-
-
-<!-- useCallback -->
-Function ko memorize karta hai
-
-
-<!-- Avoid unnecessary re-renders -->
-React me jab state ya props change hota hai tab component re-render hota hai.
-Unnecessary re-render avoid karne ke ways:

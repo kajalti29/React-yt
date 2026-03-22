@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="todo-container">
-      <h1>Todo App</h1>
+      <h1>Todo App</h1> 
 
       <input
         type="text"
