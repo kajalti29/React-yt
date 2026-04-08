@@ -32,22 +32,22 @@ npx tailwindcss init -p -->
 -------------------------------------------------------------------------------------------
 📘 React Full Notes:-
 <!-- 1️⃣ What is React? -->
-“React is a JavaScript library used to build fast and interactive user interfaces. specialy Single Page Application.
+“React is a JavaScript library used to build fast and interactive user interfaces. specialy for Single Page Applications.
 It is component-based, so we can reuse code easily.
+
 For example, in my project I created reusable components like navbar and cards.
-In short, it helps build scalable and efficient UI.”
+it helps build scalable and efficient UI.”
 
 👉 Created by Facebook(meta).
 <!-- 
 Example:-
-function Hello(){
+function App(){
     return <h1>Hello React</h1>;
 } --> 
 Logic:
-Here, Hello is a component.
+Here, Hello is a component. 
 HTML jaisa dikhta hai (JSX) 
 UI ka ek part return karta hai   
-
 
 <!-- Q. Why do we use React? -->
 👉 Because React is:
@@ -128,8 +128,7 @@ Else
 👉 Show <h1>About Page</h1>
 
 <!-- 6️⃣ Virtual DOM (MOST IMPORTANT 🔥) -->
-Virtual DOM is a lightweight copy of the real DOM. React compares it and updates only change parts.
-In short It improves performance.
+Virtual DOM is a lightweight copy of the real DOM. React updates only changed parts for better performance.
 
 <!-- Real Life Example -->
 If only text changes → React updates only that part, not full page.
@@ -176,6 +175,7 @@ For example, we write <h1>Hello</h1> inside JS.
 In short, it makes code more readable.”
 
 <!-- const element = <h1>Hello JSX</h1>; -->
+
 👉 Ye dikhta HTML jaisa hai
 👉 But actually JavaScript object hota hai.
 
@@ -246,14 +246,9 @@ Expressions in JSX allow us to write JavaScript code inside curly braces {}.
 <!--JSX me if-else kyun nahi? -->
 👉 Kyunki JSX expressions allow karta hai, statements nahi
 ---------------------------------------------------
-4️⃣ Components
-* Functional Components
-* Component naming rules
-* Reusable components
-* Component file structure
-
+4️⃣ Components:-
 <!-- What is a Component -->
-A component are eusable piece of UI in React. It is a JavaScript function that returns JSX.
+A component are reusable piece of UI in React. It is a JavaScript function that returns JSX.
 For example, I create seperate components like Header and Footer.
 In short, they improve reusability.”
 
@@ -369,24 +364,20 @@ Same UI
 We use export and import to share components between different files.
 -----------------------------------------------
 5️⃣ Props
-* What are Props?
-* Passing data parent → child
-* Multiple props
-* Destructuring props
-* Default props
-
-<!-- 5️⃣ Props :- -->
-“I use props to pass data from parent to child, like sending user name to a component.”
+<!-- * What are Props? -->
+“Props are used to pass data from parent component to child component, like sending user name to a component.”
 
 Simple Logic
 Parent → data bhejta hai
 Child → data receive karta hai
-<!-- 
-function Welcome(props){
-  return <h1>Hello {props.name}</h1>;
+
+function User(props) {
+  return <h1>{props.name}</h1>;
 }
-<Welcome name="Rahul" />
- -->
+
+// Usage
+<User name="Kaj" />
+
 -----------------------------------------------------
 Props
 <!-- Parent Component:- -->
@@ -458,13 +449,7 @@ If name is undefined → default value is used.
 <!-- Props vs Variables -->
 Props → bahar se
 Variables → component ke andar
------------------------------------------------------
-6️⃣ State
-* useState Hook  
-* Updating state
-* Counter example
-* Controlled input field
-
+--------------------------------------------------------
 6️⃣ State :-
 State is used to store dynamic data in a component.
 When state changes(update), the component re-renders automatically.
@@ -505,29 +490,31 @@ function Counter() {
   );
 }
 ----------------------------------------------------------------------------
-<!-- 5. Event Handling -->
-👉 React uses camelCase
-<!-- 
-function ClickBtn() {
-  function handleClick() {
-    alert("Clicked!");
-  }
+<!-- 10. What is Event Handling in React? -->
+Handling user actions like click, input, submit.
 
-  return <button onClick={handleClick}>Click Me</button>;
-} -->
+<button onClick={() => alert("Clicked")}>
+  Click
+</button>
 ----------------------------------------------------
  <!-- 4️⃣ What are Hooks? -->
 Hooks are special functions that allow functional components to use state and lifecycle features.
+Examples:
+useState
+useEffect
+useContext
 
 🔹 Basic Syntax
 <!-- const [count, setCount] = useState(0); -->
  
- <!-- 5️⃣ useState Hooks (Most Important 🔥):- -->
- “useState is a React hook used to manage state in functional components.
+<!-- 5️⃣ useState Hooks (Most Important 🔥):- -->
+ “useState is a React hook is used to manage state in functional components.
 For example, I use it to store user input or counter values.
 In short, it helps update UI dynamically.”
 
-const [name, setName] = useState("");
+<!-- const [name, setName] = useState(""); -->
+
+
 <!-- 
 import { useState } from "react";
 function Counter() {
@@ -553,7 +540,6 @@ useEffect(() => {
   console.log("Component Mounted");
 }, []); --> 👉 [] means run only once
 
-
 👉 Used for:
 API calls 
 Side effects 
@@ -576,7 +562,7 @@ useEffect(() => {
 }, [count]);  
 ---------------------------------------------------------------------------
 <!-- 🌐 3. useContext (AVOID PROPS DRILLING) -->
-useContext is a react Hook is used to  access global data without passing props manually.
+useContext is a react Hook is used to share data globally without passing props manually.
 
 import { createContext, useContext } from "react";
 
@@ -694,10 +680,129 @@ const handleClick = useCallback(() => {
 For example, I use unique id while rendering list items.
 In short, it helps React update efficiently.”
 
+
+<!-- 20. What is Redux? -->
+“Redux is a state management library used in large applications.
+For example, managing global data like user info.
+In short, it centralizes state.
+
+================================================================================================================
+
+🔹 What is Conditional Rendering in React?
+Conditional rendering means displaying different UI (components or elements) based on a condition.
+
+<!-- Real World Logic (Sabse Important) -->
+🧠 Example 1: Light Switch
+Switch ON → Light dikhegi
+Switch OFF → Light nahi dikhegi
+👉 That's Conditional Rendering hai
+
+
+function App() {
+  const isLoggedIn = true;
+
+  return (
+    <div>
+      {isLoggedIn ? <h1>Welcome User</h1> : <h1>Please Login</h1>}
+    </div>
+  );
+}
+“If user is logged in, it shows ‘Welcome User’, otherwise it shows ‘Please Login’.”
+
+🔹 List Rendering (map):-
+List rendering means displaying multiple items using map().
+
+notes.map((note, index) => (
+  <p key={index}>{note}</p>
+));
+
+
+🔹 Reconciliation:-
+Reconciliation is the process of comparing old Virtual DOM with new Virtual DOM and updating UI efficiently.
+
+🔹 One-way Data Binding:-
+Data flows in one direction: Parent → Child.
+<Child name="Kaj" />
+
+
+<!-- 29. Controlled vs uncontrolled components? -->
+Controlled components are managed by React state.
+<input value={name} 
+onChange={(e)=>setName(e.target.value)} />
+
+<!-- How it works -->
+User types in input
+onChange event runs
+setName() updates state
+UI re-renders
+
+<!-- 
+import { useState } from "react";
+
+function Form() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <h2>Your Name: {name}</h2>
+    </div>
+  );
+}
+
+export default Form; -->
+
+!-- Uncontrolled Component:-  -->
+uncontrolled components are managed by the DOM.
+
+<input ref={inputRef} />
+
+<!-- 
+import { useRef } from "react";
+
+function Form() {
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
+}
+
+export default Form;
+ -->
+
+
 <!-- 9. What is React Router? -->
 “React Router is used for navigation without page reload.
 For example, switching between Home and About pages.
-In short, it enables SPA navigation.”
+In short, it enables SPA navigation
+
+<Route path="/about" element={<About />} />
+
+<!-- 6. What is lifting state up? -->
+ Moving state from child to parent so multiple components can share data.
+
+For example, sharing data between components.
+In short, it enables data sharing.”
+
+<!-- 17. What is Fragment? -->
+Fragment is used to group multiple elements without adding extra DOM node.
+<>
+  <h1>Hello</h1>
+  <p>World</p>
+</>
 
 <!-- 14. What is props drilling? -->
 “Props drilling means passing data through multiple levels unnecessarily.
@@ -709,25 +814,10 @@ In short, it makes code complex.”
 For example, user authentication data.
 In short, it avoids props drilling.”
 
-
-<!-- 6. What is lifting state up? -->
-“Lifting state up means moving state to a common parent.
-For example, sharing data between components.
-In short, it enables data sharing.”
-
-
-<!-- 17. What is Fragment? -->
-“Fragment allows grouping elements without adding extra DOM nodes.
-For example, using <> </>.
-In short, it keeps DOM clean.”
-
-
-
 <!-- 18. What is reconciliation? -->
 “Reconciliation is the process where React compares old and new Virtual DOM.
 It updates only changed parts.
 In short, it makes rendering efficient.”
-
 
 
 <!-- 19. What is lazy loading? -->
@@ -736,13 +826,7 @@ For example, loading pages on demand.
 In short, it improves performance.”
 
 
-<!-- 20. What is Redux? -->
-“Redux is a state management library used in large applications.
-For example, managing global data like user info.
-In short, it centralizes state.
-
-===============================================================================================================================================================================
------------------------------------------------------------------------
+===============================================================
 <!-- ❓ How to fetch API in React? -->
 We use useEffect to call API and useState to store data.
 
@@ -770,104 +854,6 @@ User ko pata chale data aa raha hai.
 Loading shows data is coming.
 const [loading, setLoading] = useState(true);
 
-<!-- ❌ Error Handling (Simple) -->
-Error shows if something goes wrong.
----------------------------------------------------------------------------
-7️⃣ Event Handling
-onClick
-onChange
-onSubmit
-Passing arguments in events
-
-<!-- 7️⃣ Event Handling -->
-“React handles events using camelCase syntax like onClick, onChange, and onSubmit. Event handlers are passed as functions. For forms, we use preventDefault to stop page reload. When passing arguments, we use arrow functions to prevent immediate execution.”
-
-<button onClick={() => alert("Clicked")}>
-  Click Me
-</button>
-React me camelCase events use hote hain:
-onClick
-onChange
-onSubmit
-<!-- Real World -->
-Button click, input change
-
-🟢 1️⃣ onClick Event:-
-When a button or element is clicked.
-
-function App() {
-  const handleClick = () => {
-    alert("Button Clicked!");
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Click Me
-    </button>
-  );
-}
-
-🟢 2️⃣ onChange Event:-
-
-import { useState } from "react";
-
-function App() {
-  const [name, setName] = useState("");
-
-  return (
-    <>
-      <input 
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <h2>Hello {name}</h2>
-    </>
-  );
-}
-
-🟢 3️⃣ onSubmit Event:-
-When form is submitted.
-
-function App() {
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    alert("Form Submitted");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-----------------------------------------------------------------------------
-<!-- 1️⃣ What is Conditional Rendering? -->
-Conditional rendering means displaying different UI components based on a condition.
-<!-- Real World Logic (Sabse Important) -->
-🧠 Example 1: Light Switch
-Switch ON → Light dikhegi
-Switch OFF → Light nahi dikhegi
-👉 That's Conditional Rendering hai
-
-{isLogin ? <Home /> : <Login />}
-
-If isLogin is true → <Home /> is rendered.
-If isLogin is false → <Login /> is rendered.
-
-<!-- 
-function App(){
-  let isLogin = true;
-
-  return ( 
-    <div>
-      {isLogin ? <h1>Welcome</h1> : <h1>Please Login</h1>}
-    </div>
-  );
-}
- -->
 
 <!-- 23. What are keys in React? -->
 Keys are special attributes used to uniquely identify elements in a list.
@@ -971,119 +957,10 @@ True && JSX → JSX render
 False && JSX → kuch nahi
 -----------------------------------------------------
 --------------------------------------------------------------------------
-<!-- 29. Controlled vs uncontrolled components? -->
-Controlled components are managed by React state.
-<input value={name} 
-onChange={(e)=>setName(e.target.value)} />
-
-<!-- How it works -->
-User types in input
-onChange event runs
-setName() updates state
-UI re-renders
-
-<!-- 
-import { useState } from "react";
-
-function Form() {
-  const [name, setName] = useState("");
-
-  return (
-    <div>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <h2>Your Name: {name}</h2>
-    </div>
-  );
-}
-
-export default Form; -->
 
 
-<!-- Form Validation Example -->
-import { useState } from "react";
-
-function Form() {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (email === "") {
-      alert("Email is required");
-    } else {
-      alert("Form submitted");
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-
-<!-- Uncontrolled Component:-  -->
-uncontrolled components are managed by the DOM.
-
-<input ref={inputRef} />
-
-<!-- 
-import { useRef } from "react";
-
-function Form() {
-  const inputRef = useRef();
-
-  const handleSubmit = () => {
-    alert(inputRef.current.value);
-  };
-
-  return (
-    <div>
-      <input type="text" ref={inputRef} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
-  );
-}
-
-export default Form;
- -->
-
- Difference: Controlled vs Uncontrolled
-
- | Controlled             | Uncontrolled   |
-| ---------------------- | -------------- |
-| Managed by React state | Managed by DOM |
-| Uses `useState`        | Uses `useRef`  |
-| Easier validation      | Less control   |
-000000---------------------------------------------------------------------
 
 
----------------------------------------------------------------------------
-<!-- 1️⃣7️⃣ API Integration in React -->
-React apps often fetch data from APIs.
-
-Two common methods:
-1️⃣ fetch()
-<!-- 
-fetch("https://api.com/data")
-.then(res=>res.json())
-.then(data=>console.log(data)) -->
-
-2️⃣ axios 
-
-<!-- axios.get("/users") -->
----------------------------------------------------
 <!-- 🔥 17. What is Redux? (Basic) -->
 Redux is a state management library used to manage global state.
 
@@ -1105,52 +982,6 @@ Lazy loading
 Avoid unnecessary re-renders
 Proper key usage
 
------------------------------------------------
-<!-- React Router -->
-React Router is used for navigation between pages in React apps.
-
-<Route path="/about" element={<About />} />
-
-<!-- 🌍 Real-Life Example -->
-Imagine a website with:
-/ → Home page
-/about → About page
-/contact → Contact page
-In a traditional website, the page reloads when you click a link.
-With React Router:
-The URL changes
-The component changes
-The page does NOT reload
-This makes the app faster and smoother.
-
-<!-- Important concepts -->
-BrowserRouter
-Route
-Link
-NavLink
-Dynamic Routing
-
-<!-- 15. What is Fragment in React? -->
-React Fragment allows grouping multiple elements without adding extra DOM node.
-
-<>
-  <h1>Hello</h1>
-  <p>Welcome</p>
-</>
-
-<!-- 24. What is Lazy Loading in React? -->
-Loading components only when needed to improve performance.
-
-<!-- const Home = React.lazy(()=>import("./Home")) -->
-----------------------------------------------------------------------------------------------
-9. Optimization (Important for Interview)
-
-<!-- Code Splitting -->
-Code splitting breaks large JavaScript files into smaller chunks.
-<!-- Benefits -->
-Faster loading
-Smaller bundle size
-Better performance
 
 ============================================================================================================
 These check deep understanding 👇
